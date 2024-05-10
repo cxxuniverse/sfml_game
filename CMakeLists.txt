@@ -8,7 +8,7 @@ project(SFML_GAME
 # Try finding SFML package locally
 find_package(SFML COMPONENTS graphics system window REQUIRED)
 
-# Add the app libraby (STATIC)
+# Add the app library (STATIC)
 add_library(app STATIC src/app.cpp)
 target_include_directories(app PUBLIC include)
 # Set the output dir
