@@ -1,6 +1,7 @@
 #include "../include/app.h"
+#include "../include/file.h"
 
-void App::init_window(int width, int height, std::string title)
+void App::init_window(int width, int height, const std::string &title)
 {
     window = new sf::RenderWindow(sf::VideoMode(width, height), title);
 }
@@ -19,9 +20,26 @@ void App::game_loop()
 
             window->clear(sf::Color::Black);
 
-            // window->draw();
+            // window->draw(*shapes.at(1));
 
             window->display();
         }
     }
+}
+
+void App::load_from_file(const std::string &filename)
+{
+    std::ifstream fin = File::read(filename);
+
+// #define TestRead
+#ifdef TestRead
+
+    std::string word{};
+
+    while (std::getline(fin, word))
+    {
+        std::cout << word << "\n";
+    }
+
+#endif
 }
